@@ -1,10 +1,23 @@
 # ChatGPT Export Explorer
 
+> **Fork of [z1shivam/chatgpt-export-explorer](https://github.com/z1shivam/chatgpt-export-explorer)**  
+> This is an enhanced fork with additional features. See [Credits](#credits) for full attribution.
+>
+> **Note**: This workspace also includes [mckaywrigley/chatbot-ui](https://github.com/mckaywrigley/chatbot-ui) as a separate project in the `chatbot-ui/` directory (not currently integrated).
+
 Privacy-first web application for viewing and searching ChatGPT conversation exports. Works entirely in your browser with no backend required.
 
 ## Features
 
-- ZIP import (no manual extraction)
+### Enhanced Features (This Fork)
+
+- **ZIP Import Support**: Full ChatGPT export ZIP file support (no manual extraction required)
+- **Enhanced Documentation**: Comprehensive README and contributing guides
+- **Improved UI**: Better landing page and user experience
+- **Production Optimizations**: Better build configuration
+
+### Core Features (From Upstream)
+
 - Multi-export support with separate databases
 - Resume functionality (loads previous imports on startup)
 - Search across conversations and messages
@@ -14,7 +27,9 @@ Privacy-first web application for viewing and searching ChatGPT conversation exp
 
 ## Installation
 
-1. **Clone the project repository:**
+> **Note**: This is a fork with enhancements. For the original project, see [z1shivam/chatgpt-export-explorer](https://github.com/z1shivam/chatgpt-export-explorer).
+
+1. **Clone this fork:**
    - Open a terminal window.
    - Copy and paste this command, then press Enter:
 
@@ -26,6 +41,12 @@ Privacy-first web application for viewing and searching ChatGPT conversation exp
 
      ```bash
      cd chatgpt-export-explorer
+     ```
+
+   - (Optional) Set up upstream remote to sync with original:
+
+     ```bash
+     git remote add upstream https://github.com/z1shivam/chatgpt-export-explorer.git
      ```
 
 2. **Install dependencies and start the development server:**
@@ -84,15 +105,15 @@ src/
 
 ## Credits
 
-This project relies on the work of others in the open-source community. Our appreciation goes out to:
+This project is a **fork** of [z1shivam/chatgpt-export-explorer](https://github.com/z1shivam/chatgpt-export-explorer) with enhancements.
 
-## Upstream Foundation
+### Upstream Foundation
 
 **ChatGPT Export Explorer** ([z1shivam/chatgpt-export-explorer](https://github.com/z1shivam/chatgpt-export-explorer), MIT License)
 
-- Provided core architecture: IndexedDB (Dexie.js), global search design, UI structure, message rendering, and database schema.
-- We added ZIP import and documentation improvements; core concepts are retained from z1shivam.
-- Special thanks to [z1shivam](https://github.com/z1shivam).
+- **Original Author**: [z1shivam](https://github.com/z1shivam)
+- **Core contributions**: IndexedDB (Dexie.js) architecture, global search design, UI structure, message rendering, and database schema
+- **Enhancements in this fork**: ZIP import support, enhanced documentation, improved UI, and production optimizations
 
 ## Dependencies
 
@@ -151,9 +172,20 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+## Syncing with Upstream
+
+This is a fork of [z1shivam/chatgpt-export-explorer](https://github.com/z1shivam/chatgpt-export-explorer). To sync with upstream changes:
+
+```bash
+git fetch upstream
+git merge upstream/main
+```
+
+See [UPSTREAM.md](../UPSTREAM.md) for detailed instructions on managing upstream sync.
+
 ## Contributing Back
 
-- Improvements relevant to the upstream project are proposed as pull requests.
+- Improvements relevant to the upstream project are proposed as pull requests to [z1shivam/chatgpt-export-explorer](https://github.com/z1shivam/chatgpt-export-explorer).
 - We follow current, stable releases for dependencies.
 - Documentation covers usage of each key library.
 
@@ -169,7 +201,7 @@ _Made with appreciation for the open-source community._
 
 If you use this code or its ideas:
 
-- Attribute original creators (especially ChatGPT Export Explorer and dependencies).
+- Attribute original creators (especially ChatGPT Export Explorer, Chatbot UI, and dependencies).
 - Link to this project if possible.
 - Continue supporting open-source ideals.
 
