@@ -30,10 +30,10 @@ Privacy-first web application for viewing and searching ChatGPT conversation exp
 
 2. **Install dependencies and start the development server:**
 
-    ```bash
-    npm install
-    npm run dev
-    ```
+   ```bash
+   npm install
+   npm run dev
+   ```
 
 ## Usage
 
@@ -60,7 +60,7 @@ npm run preview
 
 ## File Structure
 
-```
+```text
 src/
 ├── main.js           # Core application logic
 ├── database.js       # IndexedDB operations
@@ -80,41 +80,18 @@ src/
 - XSS protection via DOMPurify
 - All processing in memory (no disk writes)
 
-## License
-
-MIT License
-
-Copyright (c) 2024 ChatGPT Export Explorer Contributors
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
 ---
 
-# Credits
+## Credits
 
 This project relies on the work of others in the open-source community. Our appreciation goes out to:
 
 ## Upstream Foundation
 
-**ChatGPT Export Explorer** ([z1shivam/chatgpt-export-explorer](https://github.com/z1shivam/chatgpt-export-explorer), MIT License)  
+**ChatGPT Export Explorer** ([z1shivam/chatgpt-export-explorer](https://github.com/z1shivam/chatgpt-export-explorer), MIT License)
+
 - Provided core architecture: IndexedDB (Dexie.js), global search design, UI structure, message rendering, and database schema.
-- We added ZIP import and documentation improvements; core concepts are retained from z1shivam.  
+- We added ZIP import and documentation improvements; core concepts are retained from z1shivam.
 - Special thanks to [z1shivam](https://github.com/z1shivam).
 
 ## Dependencies
@@ -150,9 +127,29 @@ This project relies on the work of others in the open-source community. Our appr
 - **Early Users & Testers**: Feedback is crucial—thank you!
 - **ChatGPT Users**: Those advocating for user-owned data inspired this tool.
 
-## Licensing
+## License
 
-All code and dependencies use permissive licenses (MIT, Apache-2.0, etc.), enabling free use and distribution.
+MIT License
+
+Copyright (c) 2024 ChatGPT Export Explorer Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ## Contributing Back
 
@@ -177,4 +174,3 @@ If you use this code or its ideas:
 - Continue supporting open-source ideals.
 
 Thank you!
-
