@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Content Security Policy -->
+    <!-- Note: CSP frame-ancestors and X-Frame-Options must be set via HTTP headers, not meta tags -->
+    <!-- For production deployment, configure these headers in your web server (nginx, Apache, etc.) -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' 'unsafe-inline' 'unsafe-eval'; 
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+                   font-src 'self' https://fonts.gstatic.com; 
+                   img-src 'self' data: blob:; 
+                   connect-src 'self';
+                   object-src 'none';
+                   base-uri 'self';
+                   form-action 'none';">
+    
+    <!-- Additional security headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="no-referrer">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>ChatGPT Export Explorer</title>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="app">
+      <div id="landingScreen" class="landing-screen">
+        <div class="landing-container">
+          <div class="landing-hero">
+            <div class="landing-icon">💬</div>
+            <h1 class="landing-title">ChatGPT Export Explorer</h1>
+            <p class="landing-subtitle">
+              Navigate and search through your exported ChatGPT conversations with powerful tools
+            </p>
+          </div>
+
+          <div class="landing-upload">
+            <div class="dropzone" id="dropzone">
+              <div class="dropzone-content">
+                <div class="dropzone-icon">📁</div>
+                <h3>Drop your ChatGPT export file here</h3>
+                <p>or <button class="btn-link" id="browseBtn">browse files</button></p>
+                    <div class="dropzone-formats">
+                      <span>Supports: ChatGPT export ZIP files or conversations.json (multiple files supported)</span>
+                    </div>
+              </div>
+            </div>
+            
+            <div class="sample-data-section">
+              <div class="sample-data-divider">
+                <span>or</span>
+              </div>
+              <button id="loadSampleData" class="btn btn-secondary sample-data-btn">
+                <span class="btn-icon">🎯</span>
+                Try with Sample Conversations
+              </button>
+              <p class="sample-data-description">
+                Explore the app with real example conversations about tech topics, travel planning, and more.
+              </p>
+            </div>
+          </div>
+
+          <div class="landing-features">
+            <div class="feature-card">
+              <div class="feature-icon">🔍</div>
+              <h3>Deep Search</h3>
+              <p>Search across all exported conversations and messages instantly</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">🔒</div>
+              <h3>100% Offline</h3>
+              <p>Your exported data stays on your device. No server uploads.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">⚡</div>
+              <h3>Lightning Fast</h3>
+              <p>Optimized for large conversation exports and datasets</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">📊</div>
+              <h3>Smart Navigation</h3>
+              <p>Organize and browse through your conversation history</p>
+            </div>
+          </div>
+
+          <div class="landing-instructions">
+            <h3>📋 How to export your ChatGPT conversations:</h3>
+            <ol class="instructions-list">
+              <li>Go to <strong>ChatGPT Settings</strong> → <strong>Data Controls</strong></li>
+              <li>Click <strong>"Export data"</strong> and wait for the email</li>
+              <li>Download the ZIP file from the email</li>
+              <li>Drag and drop the ZIP file here (no need to extract!)</li>
+            </ol>
+          </div>
+
+          <div class="landing-footer">
+            <div class="footer-info">
+              <p>
+                🛡️ <strong>Privacy First:</strong> All processing happens locally in your browser. 
+                Your exported conversations never leave your device.
+              </p>
+              <p>
+                🔓 <strong>Open Source:</strong> This conversation explorer is open source and free to use. 
+                Perfect for analyzing and searching through your ChatGPT conversation history.
+              </p>
+            </div>
+            <div class="footer-theme">
+              <button id="landingThemeToggle" class="btn btn-secondary" title="Toggle dark/light mode">🌙</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="mainApp" class="main-app" style="display: none;">
+        <header class="header">
+          <div class="header-left">
+            <h1>ChatGPT Export Explorer</h1>
+          </div>
+          <div class="header-right">
+            <div class="accessibility-controls">
+              <div class="font-size-control">
+                <button class="font-size-btn" data-size="small" title="Small font">A</button>
+                <button class="font-size-btn active" data-size="normal" title="Normal font">A</button>
+                <button class="font-size-btn" data-size="large" title="Large font">A</button>
+                <button class="font-size-btn" data-size="xl" title="Extra large font">A</button>
+              </div>
+              <button id="highContrastToggle" class="accessibility-toggle" title="Toggle high contrast">⚡</button>
+            </div>
+            <button id="themeToggle" class="btn btn-secondary" title="Toggle dark/light mode">🌙</button>
+            <button id="loadBtn" class="btn btn-primary">Add Export</button>
+            <button id="clearBtn" class="btn btn-secondary">Clear Data</button>
+          </div>
+        </header>
+        
+        <div class="main-container">
+        <aside class="sidebar" role="navigation" aria-label="Conversations and search">
+          <div class="search-box">
+            <input type="text" id="globalSearch" placeholder="Search across all conversations (Ctrl+Shift+K)" aria-label="Search all conversations" />
+          </div>
+          <div class="conversations-list" id="conversationsList" role="list" aria-label="Conversation list">
+            <div class="no-data">No conversations loaded</div>
+          </div>
+          <div class="search-results" id="searchResults" style="display: none;">
+            <div class="search-results-header">
+              <h3>Search Results</h3>
+              <button id="clearSearchResults" class="btn btn-secondary btn-small">Clear</button>
+            </div>
+            <div class="search-results-list" id="searchResultsList">
+            </div>
+          </div>
+        </aside>
+        
+        <main class="content" id="main-content">
+          <div class="conversation-header">
+            <h2 id="conversationTitle">Select a conversation</h2>
+            <div class="search-container">
+              <div class="search-box">
+                <input type="text" id="conversationSearch" placeholder="Search current conversation (Ctrl+K)" aria-label="Search in current conversation" />
+              </div>
+              <div class="search-navigation" id="searchNavigation" style="display: none;">
+                <span class="search-results-count" id="searchResultsCount" aria-live="polite">0 results</span>
+                <div class="search-nav-buttons">
+                  <button id="prevResult" class="search-nav-btn" title="Previous result (F3)" aria-label="Go to previous search result">↑</button>
+                  <button id="nextResult" class="search-nav-btn" title="Next result (Shift+F3)" aria-label="Go to next search result">↓</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="conversation-content" id="conversationContent" role="main" aria-label="Conversation messages">
+            <div class="no-conversation">Select a conversation from the sidebar to view its content</div>
+          </div>
+        </main>
+      </div>
+    </div>
+    
+    <input type="file" id="fileInput" accept=".zip,.json" multiple style="display: none;" />
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

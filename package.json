@@ -1,0 +1,30 @@
+{
+  "name": "chatgpt-export-explorer",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "format": "prettier --write \"src/**/*.{js,json,css,html}\"",
+    "format:check": "prettier --check \"src/**/*.{js,json,css,html}\"",
+    "validate": "npm run lint && npm run format:check && npm run build",
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.7.4",
+    "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "dexie": "^4.0.11",
+    "dompurify": "^3.3.1",
+    "jszip": "^3.10.1",
+    "marked": "^16.0.0",
+    "prismjs": "^1.30.0"
+  }
+}
