@@ -152,7 +152,7 @@ This project is a **fork** of [z1shivam/chatgpt-export-explorer](https://github.
 
 MIT License
 
-Copyright (c) 2024 ChatGPT Export Explorer Contributors
+Copyright (c) 2025 ChatGPT Export Explorer Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
