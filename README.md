@@ -14,18 +14,33 @@ Privacy-first web application for viewing and searching ChatGPT conversation exp
 
 ## Installation
 
-```bash
-npm install
-npm run dev
-```
+1. **Clone the project repository:**
+   - Open a terminal window.
+   - Copy and paste this command, then press Enter:
 
-Open `http://localhost:5173` in your browser.
+     ```bash
+     git clone https://github.com/abcdqfr/chatgpt-export-explorer.git
+     ```
+
+   - Change directory into the project:
+
+     ```bash
+     cd chatgpt-export-explorer
+     ```
+
+2. **Install dependencies and start the development server:**
+
+    ```bash
+    npm install
+    npm run dev
+    ```
 
 ## Usage
 
 1. Export from ChatGPT: Settings → Data Controls → Export Data
-2. Drag and drop the ZIP file onto the landing screen
-3. Browse and search your conversations
+2. Open `http://localhost:5173` in your browser.
+3. Drag and drop the ZIP file onto the landing screen
+4. Browse and search your conversations
 
 ### Keyboard Shortcuts
 
